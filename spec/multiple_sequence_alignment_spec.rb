@@ -19,13 +19,17 @@ describe MultipleSequenceAlignment do
     expect(msa.sequences).to be_a(Array)
   end
 
-  it '#results' do
-    expect(msa.results.size).to eq(msa.sequences.size)
-  end
+  [Clustalw, Muscle].each do |alignment_tool|
+    let(:aligner) { alignment_tool.new(sequences) }
 
-  it '#log is populated after running' do
-    expect(msa.log).to be_nil
-    msa.results
-    expect(msa.log).to_not be_empty
+    it '#results' do
+      expect(aligner.results.size).to eq(aligner.sequences.size)
+    end
+
+    it '#log is populated after running' do
+      expect(aligner.log).to be_nil
+      aligner.results
+      expect(aligner.log).to_not be_empty
+    end
   end
 end

@@ -1,5 +1,6 @@
 *
 !Gemfile
 !Gemfile.lock
+!config.ru
 !app.rb
 !lib/

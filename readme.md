@@ -1,6 +1,8 @@
 # multiple-sequence-alignment-api
 
 Simple API for conducting multiple sequence alignments on nucleotide sequences.
+This app is stateless and neither sequence data nor alignments are stored
+permanently.
 
 ## Installation
 

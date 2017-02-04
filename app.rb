@@ -34,6 +34,9 @@ require './lib/multiple_sequence_alignment.rb'
 
 class MSAAPI < Sinatra::Base
 
+  # can be Muscle or Clustalw
+  ALIGNER = Clustalw
+
   before do
     content_type 'application/json'
   end
@@ -48,7 +51,7 @@ class MSAAPI < Sinatra::Base
     params = JSON.parse(request.body.read)
     $stderr.puts params
     sequences = params['sequences'].map { |sequence| Sequence.new(sequence['id'], sequence['body']) }
-    msa = MultipleSequenceAlignment.new(sequences)
+    msa = ALIGNER.new(sequences)
     {
       'sequences': msa.results.map(&:to_h),
       'log': msa.log

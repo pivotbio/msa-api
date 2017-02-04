@@ -4,6 +4,8 @@ Simple API for conducting multiple sequence alignments on nucleotide sequences.
 This app is stateless and neither sequence data nor alignments are stored
 permanently.
 
+Supports MUSCLE and Clustalw2
+
 ## Installation
 
 ```

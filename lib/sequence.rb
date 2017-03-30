@@ -7,10 +7,10 @@ class Sequence
   end
 
   def as_fasta
-    ">#{@id}\n#{@body}\n"
+    ">#{id}\n#{body}\n"
   end
 
   def to_h
-    { id: @id, body: @body }
+    { id: id, body: body }
   end
 end

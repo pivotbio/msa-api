@@ -38,7 +38,7 @@ class Clustalw < MultipleSequenceAlignment
     cmd = "clustalw2 -infile=#{sequences_file.path} -outfile=#{alignment_file.path} -output=FASTA"
 
     @log = Open3.popen3(cmd) do |stdin, stdout, stderr, wait_thr|
-      stderr.read
+      stdout.read
     end
 
     Dna.new(File.open(alignment_file.path), format: :fasta).map do |record|
@@ -54,7 +54,7 @@ class Muscle < MultipleSequenceAlignment
     cmd = "muscle -in #{sequences_file.path} -out #{alignment_file.path}"
 
     @log = Open3.popen3(cmd) do |stdin, stdout, stderr, wait_thr|
-      stdout.read
+      stderr.read
     end
 
     Dna.new(File.open(alignment_file.path), format: :fasta).map do |record|

@@ -1,0 +1,8 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t 588598685737.dkr.ecr.us-east-1.amazonaws.com/msa-api:latest .

@@ -8,7 +8,7 @@ Supports global (MUSCLE) and local (Clustalw2) alignment.
 
 ## Installation
 
-```
+```sh
 docker build --tag msa-api .
 
 docker run \
@@ -20,7 +20,7 @@ docker run \
 
 The API accepts POST requests to `/`. For example:
 
-```bash
+```sh
 curl \
   -X POST \
   -d '{"sequences":[{"id":1,"body":"CCCCTTTTGGGGAAAA"},{"id":2,"body":"CCCCGGGGAAAA"}]}' \
@@ -31,7 +31,7 @@ curl \
 This will return the following JSON:
 
 
-```json
+```javascript
 {
   "sequences": [
     {
